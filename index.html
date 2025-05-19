@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dear Ayang!</title>
+
+  <!-- Tambahkan di bagian <head> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+      color: #fff;
+      user-select: none;
+    }
+        .section {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .section.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+/* ===== Section-1 */
+
+    #section-1, #section-2 {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+
+    /* Background container for floating hearts */
+    #heart-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Heart shapes */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 18px;
+      background-color: red;
+      transform-origin: center bottom;
+      opacity: 0.8;
+      clip-path: polygon(
+        50% 0%,
+        100% 35%,
+        80% 100%,
+        50% 80%,
+        20% 100%,
+        0% 35%
+      );
+      /* Heart shape polygon */
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    }
+
+    /* Big heart */
+    #big-heart {
+      font-size: 7rem;
+      color: #ff3b5c;
+      z-index: 10;
+      cursor: pointer;
+      filter: drop-shadow(0 0 4px #ff5073);
+      user-select: none;
+    }
+
+    #center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      text-align: center;
+    }
+
+    #click-text {
+      margin-top: 1rem;
+      font-size: 1.8rem;
+      color: #ff7f9a;
+      opacity: 0;
+      user-select: none;
+      text-shadow: 0 0 6px #ff3b5c88;
+    }
+
+/* ===== Section-1 */
+
+/* ===== Section-2 */
+
+  #section-2 {
+    background: #ff66b2;
+    opacity: 0;
+    pointer-events: none;
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    z-index: 2;
+  }
+
+  #section-2 h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  #cake {
+    width: 200px;
+    height: auto;
+    margin: 1.5rem auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  #cake img {
+    display: block;
+    max-width: 100%;
+  }
+
+  .flame {
+    position: absolute;
+    width: 14px;
+    height: 24px;
+    background: radial-gradient(circle at 50% 30%, #ffd700, #ff8c00 70%);
+    border-radius: 50% 50% 40% 40%;
+    animation: flicker 0.3s infinite alternate;
+    box-shadow: 0 0 6px #ffaa33;
+    filter: drop-shadow(0 0 3px #ffaa33);
+    z-index: 2;
+  }
+
+  /* Penyesuaian posisi berdasarkan lilin di gambar emoji */
+  .flame-1 {
+    top: 21px;
+    left: 75px;
+  }
+
+  .flame-2 {
+    top: 28px;
+    left: 95px;
+  }
+
+  .flame-3 {
+    top: 21px;
+    left: 113px;
+  }
+
+  @keyframes flicker {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.1);
+      opacity: 0.85;
+    }
+  }
+
+  #section-2 p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    max-width: 360px;
+  }
+
+  #cta-button {
+    margin-top: 2rem;
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    background: white;
+    color: #ff4081;
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+  }
+
+  #heart-bg-2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  #cta-button:hover {
+    transform: scale(1.05);
+  }
+
+  /* Section-3 */
+
+  #section-3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffe3ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    padding: 2rem;
+    text-align: center;
+    color: #333;
+    z-index: 1;
+    transition: opacity 1s;
+  }
+
+  #section-3 h2 {
+    font-size: 2rem;
+    color: #ff3b5c;
+    margin-bottom: 1rem;
+  }
+
+  #section-3 p {
+    font-size: 1.2rem;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  /* Tambahkan ini di style */
+#next-to-section4 {
+  margin-top: 2rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  background: #ff3b5c;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+#next-to-section4:hover {
+  transform: scale(1.05);
+}
+
+
+  /* Tambahkan ke dalam <style> */
+#section-4 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffe3ec, #ffc4d6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.swiper {
+  width: 90%;
+  max-width: 600px;
+  height: 300px;
+}
+
+.swiper-slide {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 2rem;
+  color: #ff3b5c;
+}
+
+      
+        
+        #section-3 {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            text-align: center;
+            color: white;
+        }
+        
+        #section-4 {
+            background: linear-gradient(135deg, #ffd1ff, #fad0c4);
+            text-align: center;
+            color: white;
+        }
+        
+        .swiper {
+            width: 90%;
+            max-width: 600px;
+            height: 60vh;
+        }
+        
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .typing-text {
+            min-height: 120px;
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .romantic-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 117, 140, 0.6);
+        }
+        
+        .swiper-pagination-bullet {
+            background-color: white;
+            opacity: 0.5;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background-color: white;
+        }
+
+        .slide-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #next-section-btn {
+            display: none;
+        }
+
+/*Section-5 */
+#section-5 {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            text-align: center;
+            color: white;
+        }
+        
+        #section-6 {
+            background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+            text-align: center;
+            color: white;
+        }
+        
+        .swiper-love-story {
+            width: 90%;
+            max-width: 800px;
+            height: 80vh;
+        }
+        
+        .love-story-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            opacity: 0.7;
+            transform: scale(0.85);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            padding: 20px;
+        }
+        
+        .swiper-slide-active .love-story-slide {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .love-story-image {
+            width: 100%;
+            height: 65%;
+            max-height: 450px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .love-story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .date-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #f5576c;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .love-story-caption {
+            width: 90%;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 400;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+        }
+        
+        .swiper-slide-active .love-story-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .story-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+        }
+        
+        .swiper-slide-active .story-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .next-story-btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(to right, #f093fb, #f5576c);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+            transition: all 0.3s ease;
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .next-story-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+        
+        .next-story-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(245, 87, 108, 0.6);
+        }
+        
+        .swiper-pagination-bullet {
+            background-color: white;
+            opacity: 0.5;
+            width: 10px;
+            height: 10px;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background-color: white;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .section-title {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .love-story-image {
+                height: 55%;
+            }
+            
+            .love-story-caption {
+                font-size: 1rem;
+            }
+            
+            .story-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                top: 20px;
+            }
+        }
+
+/* Section-6 */
+#section-6 {
+            background: linear-gradient(135deg, #141E30, #243B55);
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #section-7 {
+            background: linear-gradient(135deg, #ff9966, #ff5e62);
+            text-align: center;
+            color: white;
+        }
+        
+        .cake-container {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+        
+        .candle {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            background: #fff;
+            top: 10px;
+            left: 50%;
+            margin-left: -10px;
+            border-radius: 10px 10px 0 0;
+            z-index: 10;
+        }
+        
+        .flamekado {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: #ff9900;
+            border-radius: 10px 10px 20px 20px;
+            top: -30px;
+            left: 0;
+            transform-origin: center bottom;
+            animation: flicker 1s infinite alternate;
+            opacity: 1;
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .flamekado:before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: #ffdd00;
+            border-radius: 5px 5px 10px 10px;
+            top: 5px;
+            left: 5px;
+        }
+        
+        @keyframes flicker {
+            0% {
+                transform: scaleY(1) rotate(-2deg);
+            }
+            25% {
+                transform: scaleY(1.1) rotate(2deg);
+            }
+            50% {
+                transform: scaleY(0.9) rotate(-1deg);
+            }
+            75% {
+                transform: scaleY(1.05) rotate(1deg);
+            }
+            100% {
+                transform: scaleY(1) rotate(0deg);
+            }
+        }
+        
+        .blow-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+            transition: all 0.3s ease;
+            position: absolute;
+            bottom: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+        
+        .blow-button:hover {
+            transform: translateX(-50%) translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 117, 140, 0.6);
+        }
+        
+        .fireworks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            display: none;
+        }
+        
+        .firework {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .congratulation {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(-30px);
+            transition: all 0.8s ease;
+        }
+        
+        .congratulation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Decorative stars */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        /* Decorations on cake */
+        .decoration {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 11;
+        }
+        
+        .decoration1 { top: 130px; left: 90px; background: #9b5de5; }
+        .decoration2 { top: 150px; left: 120px; background: #00f5d4; }
+        .decoration3 { top: 140px; left: 160px; background: #fee440; }
+        .decoration4 { top: 120px; left: 180px; background: #00bbf9; }
+
+/* Section 7: Gift Box */
+#section-7 {
+    background: linear-gradient(135deg, #654ea3, #da98b4);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* pastikan section full tinggi layar */
+    padding: 20px; /* untuk sedikit ruang pada sisi kecil */
+}
+
+        
+        .surprise-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(-30px);
+            animation: fadeInDown 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .gift-container {
+            position: relative;
+            cursor: pointer;
+            transform: translateY(100vh);
+            animation: bounceIn 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+            animation-delay: 1s;
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                transform: translateY(100vh);
+            }
+            70% {
+                transform: translateY(-50px);
+            }
+            85% {
+                transform: translateY(30px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        .gift-box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: #ff7eb3;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 1s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .gift-box.open {
+            transform: rotateX(-110deg);
+        }
+        
+        .gift-box-lid {
+            position: absolute;
+            top: -30px;
+            width: 200px;
+            height: 30px;
+            background: #ff5e8f;
+            border-radius: 5px 5px 0 0;
+            transform-origin: bottom;
+            transition: transform 0.5s ease;
+        }
+        
+        .gift-box.open .gift-box-lid {
+            transform: translateY(-80px) rotateX(90deg);
+        }
+        
+        .gift-ribbon-vertical {
+            position: absolute;
+            width: 30px;
+            height: 200px;
+            background: #ffee58;
+            left: 85px;
+            z-index: 1;
+        }
+        
+        .gift-ribbon-horizontal {
+            position: absolute;
+            width: 200px;
+            height: 30px;
+            background: #ffee58;
+            top: 85px;
+            z-index: 2;
+        }
+        
+        .gift-bow {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #ffee58;
+            border-radius: 50%;
+            top: -15px;
+            left: 70px;
+            z-index: 3;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gift-bow:before, .gift-bow:after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 60px;
+            background: #ffee58;
+            border-radius: 30px 30px 0 0;
+        }
+        
+        .gift-bow:before {
+            left: -15px;
+            transform: rotate(-30deg);
+            transform-origin: right bottom;
+        }
+        
+        .gift-bow:after {
+            right: -15px;
+            transform: rotate(30deg);
+            transform-origin: left bottom;
+        }
+        
+        .tap-instruction {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            opacity: 0;
+            animation: pulse 2s infinite alternate;
+            animation-delay: 3s;
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Section 8: Final Card and QR Code */
+        #section-8 {
+            background: linear-gradient(135deg, #5f2c82, #49a09d);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .final-container {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-container {
+            perspective: 1000px;
+            width: 300px;
+            height: 400px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            animation: cardFlip 1.5s forwards;
+        }
+        
+        @keyframes cardFlip {
+            0% {
+                transform: rotateY(180deg);
+            }
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .card-front {
+            background: linear-gradient(to bottom, #ff758c, #ff7eb3);
+            color: white;
+            z-index: 2;
+        }
+        
+        .card-back {
+            background: white;
+            color: #333;
+            transform: rotateY(180deg);
+        }
+        
+        .card-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-content {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+.qr-container {
+    margin: 30px 0;
+}
+
+.qr-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.qr-image-wrapper {
+    margin: 0 auto;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 200px; /* Atur lebar maksimal kotak gambar */
+    max-width: 100%;
+    text-align: center;
+}
+
+.qr-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+        
+        .final-message {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 20px;
+            max-width: 80%;
+            line-height: 1.5;
+            animation: fadeIn 2s forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .heart-icon {
+            color: #ff5e8f;
+            animation: heartBeat 1.5s infinite;
+        }
+        
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+            14% {
+                transform: scale(1.3);
+            }
+            28% {
+                transform: scale(1);
+            }
+            42% {
+                transform: scale(1.3);
+            }
+            70% {
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .surprise-text {
+                font-size: 2rem;
+                margin-bottom: 60px;
+            }
+            
+            .card-container {
+                width: 260px;
+                height: 350px;
+            }
+            
+            .final-message {
+                font-size: 1.3rem;
+            }
+        }
+.qr-image:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  <section id="section-1">
+    <div id="heart-bg" aria-hidden="true"></div>
+
+    <div id="center-content">
+      <div id="big-heart" role="button" tabindex="0" aria-label="Klik saya untuk mulai kejutan!">❤️</div>
+      <div id="click-text">Open Your Eye's & Click Me!</div>
+    </div>
+  </section>
+
+  <section id="section-2" aria-live="polite" aria-hidden="true">
+    <div id="heart-bg-2" aria-hidden="true"></div>
+    <h1>Happy Birthday Ayang!</h1>
+    <div id="cake">
+      <img src="https://www.emojiall.com/images/240/google/1f382.png" alt="Kue Ulang Tahun" />
+      <div class="flame flame-1"></div>
+      <div class="flame flame-2"></div>
+      <div class="flame flame-3"></div>
+    </div>
+    <p><i>Semoga di ulang tahun ini, kamu diberi hati yang lebih kuat, umur panjang, rezeki yang berlimpah. Makasih udah jadi rumah yang hangat, meski sekarang kita lagi jauh. Nggak banyak yang bisa aku kasih, selain doa dan rasa yang masih sama.</i></p>
+
+    <button id="cta-button">Lanjutin Ya!</button>
+
+  </section>
+  
+  <section id="section-3">
+  <h2>Pesan Spesial Buat Kamu ❤️</h2>
+  <p>Halo Ayang, perempuan luar biasa yang pernah memilih aku...Hari ini, aku cuma ingin kamu tahu... aku nggak pernah lupa cara kamu mencintaiku dulu. Senyum kamu, tawa kamu, cara kamu bilang 'ayang'—semua masih hidup di dalam hati aku.</p>
+  <!-- Tambahkan button ini ke dalam #section-3, setelah <p> -->
+  <button id="next-to-section4">Lanjut ke Pesan Lainnya</button>
+  </section>
+
+  <!-- Tambahkan setelah section-3 -->
+  <section id="section-4" class="section active">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="romantic-icon">❤️✨</div>
+                        <div class="typing-text" data-text="Ingat nggak dulu... kita sering habisin waktu bareng, saling cerita tiap malem sampe ketiduran! Lakuin hal yang kita suka berdua, jalanin hari-hari tanpa ada rasa takut, laluin banyak masalah kecil hingga berat sama-sama"></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="romantic-icon">🎂💫</div>
+                        <div class="typing-text" data-text="Aku nggak tahu apa yang kamu rasain sekarang. Tapi harapanku sederhana..."></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="romantic-icon">🌟💝</div>
+                        <div class="typing-text" data-text="Kalau kamu butuh ruang, aku akan menunggu. Kalau kamu butuh waktu, aku akan sabar. Tapi kalau suatu hari kamu ingin pulang, aku selalu terbuka buat kamu."></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="romantic-icon">🎁💕</div>
+                        <div class="typing-text" data-text="Terima kasih telah hadir dan memberi warna dalam hidup aku."></div>
+                        <button id="next-section-btn" class="btn">Lanjut</button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+  </section>
+
+     <!-- Section 5: Love Story Carousel -->
+    <section id="section-5" class="section">
+        <h2 class="section-title">Kisah Cinta Kita</h2>
+        <div class="swiper swiper-love-story">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="love-story-slide">
+                        <div class="love-story-image">
+                            <img src="https://i.imgur.com/5yEdIZs.jpeg" alt="First Meeting">
+                            <div class="date-tag">November 2023</div>
+                        </div>
+                        <h3 class="story-title">Pertemuan Pertama</h3>
+                        <p class="love-story-caption">Ini pas pertama kali kita awal-awal lebih deket sampe kondangan bareng ke depok malem-malem sampe muter-muter ke makam.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="love-story-slide">
+                        <div class="love-story-image">
+                            <img src="https://i.imgur.com/1KH5ux0_d.webp?maxwidth=760&fidelity=grand" alt="First Date">
+                            <div class="date-tag">Desember 2023</div>
+                        </div>
+                        <h3 class="story-title">Kencan Pertama</h3>
+                        <p class="love-story-caption">Ini dulu pas kita awal pacaran masih sembunyi-sembunyi karena takut banget ketahuan sama orang lain, belanjang bareng ujan-ujanan, masak bareng bakar-bakaran, tiap malem gibah terus, sampe kamu care banget pas aku lagi sakit. Bangga banget sama kamu!</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="love-story-slide">
+                        <div class="love-story-image">
+                            <img src="https://i.imgur.com/TvSMbZR.jpeg" alt="Vacation Together">
+                            <div class="date-tag">Maret 2024</div>
+                        </div>
+                        <h3 class="story-title">Liburan Bersama</h3>
+                        <p class="love-story-caption">Dulu lagi gabut tiba-tiba main ke bandung karena biar samaan kayak temen kampus aku, kulineran keliling bandung, ujan-ujanan, deeptalk ketawa sampe nangis bareng sepanjang jalan, sampe dapat kabar ayah sakit dsb. Berdua dirasain semua jadi saling ngerasa makin sepaham. Pengalaman yang gakan pernah terlupakan, andai ada kesempatan lagi yang dapat diulang.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <div class="love-story-slide">
+                        <div class="love-story-image">
+                            <img src="https://i.imgur.com/FHFdiFK.png" alt="Special Moment">
+                            <div class="date-tag">Juni 2024</div>
+                        </div>
+                        <h3 class="story-title">Momen Spesial</h3>
+                        <p class="love-story-caption">Banyak banget momen spesial yang gakan pernah aku lupain, momen beruda, bersama keluarga, dan banyak lainnya</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 5 -->
+                <div class="swiper-slide">
+                    <div class="love-story-slide">
+                        <div class="love-story-image">
+                            <img src="https://i.imgur.com/7m3gNDf.jpeg" alt="Anniversary">
+                            <div class="date-tag">20 Mei 2024</div>
+                        </div>
+                        <h3 class="story-title">Lamaran Tanda Keseriusan</h3>
+                        <p class="love-story-caption">Setahun bersama, ribuan kenangan indah, dan masih banyak cerita yang gakan pernah terlupakan</p>
+                        <button id="next-story-btn" class="next-story-btn">Lanjut Cerita</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add navigation arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            
+            <!-- Add pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Section 6: Interactive Birthday Cake -->
+    <section id="section-6" class="section">
+        <div class="stars"></div>
+        
+        <h2 class="congratulation">Selamat Ulang Tahun Ayang!</h2>
+        
+        <div class="cake-container">
+            <img src="https://i.imgur.com/yy7Oz2E.png" alt="Birthday Cake" class="cake-image">
+            <div class="candle">
+                <div class="flamekado" id="flamekado"></div>
+            </div>
+        </div>
+        
+        <button class="blow-button" id="blow-button">Tiup Lilin 🎂</button>
+        
+        <div class="fireworks" id="fireworks"></div>
+    </section>
+
+    <!-- Section 7: Gift Box -->
+    <section id="section-7" class="section">
+        <h2 class="surprise-text">Ada kejutan terakhir buat kamu!</h2>
+        
+        <div class="gift-container" id="gift-container">
+            <div class="gift-box" id="gift-box">
+                <div class="gift-box-lid"></div>
+                <div class="gift-ribbon-vertical"></div>
+                <div class="gift-ribbon-horizontal"></div>
+                <div class="gift-bow"></div>
+            </div>
+            <div class="tap-instruction">Klik untuk membuka 🎁</div>
+        </div>
+    </section>
+
+    <!-- Section 8: Final Card and QR Code -->
+    <section id="section-8" class="section">
+        <div class="final-container">
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-front">
+                        <h2 class="card-title">Untuk Seseorang yang Spesial</h2>
+                        <div class="card-content">
+                            Setiap hari bersamamu adalah hadiah terindah.<br>
+                            Terima kasih untuk semua kenangan manis yang telah kita buat bersama.
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <!-- Card back content if needed -->
+                    </div>
+                </div>
+            </div>
+          
+
+<div class="qr-container">
+  <h3 class="qr-title">Dana Kaget Untukmu 🎁</h3>
+  <div class="qr-image-wrapper">
+    <a href="https://link.danakaget.com/contoh" target="_blank" rel="noopener noreferrer">
+      <img src="https://jabarekspres.com/wp-content/uploads/2023/05/DANA-Kaget-buatmu-1.png" alt="Dana Kaget QR" class="qr-image">
+    </a>
+  </div>
+</div>
+
+
+
+            
+            <p class="final-message">
+                Terima kasih sudah jadi cinta terbaik dalam hidup aku <span class="heart-icon">💖</span>
+            </p>
+        </div>
+    </section>
+
+<audio id="bg-music" autoplay loop>
+  <source src="audio.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <script>
+      // Saat user klik elemen apa pun, unmute audio dan play
+  document.addEventListener('click', function () {
+    const audio = document.getElementById('bg-music');
+    audio.muted = false;
+    audio.play();
+  }, { once: true }); // cuma jalan sekali
+          // Create colorful ascending hearts background animation
+          const heartBg = document.getElementById('heart-bg');
+          const colors = ['#ff3b5c', '#ff7f9a', '#ffb6b9', '#ffc7c7', '#ff4f6d', '#ff90a4'];
+
+          // Utility: random int between min and max
+          function randomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          }
+
+          // Create a single heart element with random color and initial position
+          function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.backgroundColor = colors[randomInt(0, colors.length - 1)];
+            heart.style.left = randomInt(0, window.innerWidth) + 'px';
+            heart.style.bottom = '-20px';
+            heart.style.width = randomInt(12, 25) + 'px';
+            heart.style.height = heart.style.width.replace('px', '') * 0.9 + 'px';
+            heart.style.opacity = (Math.random() * 0.5 + 0.5).toFixed(2);
+            heart.style.filter = `drop-shadow(0 0 3px ${heart.style.backgroundColor})`;
+            return heart;
+          }
+
+          // Animate single heart upwards with random duration and horizontal sway
+          function animateHeart(heart) {
+            const duration = randomInt(5000, 9000) / 1000;
+            const horizontalMove = randomInt(-50, 50);
+
+            gsap.to(heart, {
+              y: -window.innerHeight - 40,
+              x: `+=${horizontalMove}`,
+              opacity: 0,
+              duration: duration,
+              ease: "linear",
+              onComplete: () => {
+                heart.remove();
+                spawnHeart();
+              }
+            });
+          }
+
+          // Spawn a heart and animate it
+          function spawnHeart() {
+            const heart = createHeart();
+            heartBg.appendChild(heart);
+            animateHeart(heart);
+          }
+
+          // Initialize a bunch of hearts continuously
+          for(let i=0; i<25; i++) {
+            setTimeout(spawnHeart, i * 300);
+          }
+          // Also spawn periodically after some time
+          setInterval(spawnHeart, 800);
+
+          // Animate big heart bounce and text fade in
+          const bigHeart = document.getElementById('big-heart');
+          const clickText = document.getElementById('click-text');
+
+          gsap.to(bigHeart, {
+            y: -30,
+            duration: 1.4,
+            ease: "power1.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: 0.5
+          });
+
+          gsap.to(clickText, {
+            opacity: 1,
+            y: -10,
+            duration: 2,
+            delay: 1,
+            ease: "power2.out",
+          });
+
+          // Click handler to transition from section-1 to section-2
+          function startSurprise() {
+            // Disable further clicks/key press
+            bigHeart.style.pointerEvents = 'none';
+            bigHeart.setAttribute('aria-disabled', 'true');
+
+            const section1 = document.getElementById('section-1');
+            const section2 = document.getElementById('section-2');
+
+            // Animate section1 out (fade + slide up)
+            gsap.to(section1, {
+              y: -window.innerHeight,
+              opacity: 0,
+              duration: 1.2,
+              ease: "power2.inOut",
+              onComplete: () => {
+                section1.style.display = 'none';
+              }
+            });
+
+            // Animate section2 in (fade in)
+            gsap.to(section2, {
+              opacity: 1,
+              pointerEvents: 'auto',
+              duration: 1.4,
+              ease: "power2.out",
+              onStart: () => {
+                section2.setAttribute('aria-hidden', 'false');
+              }
+            });
+          }
+
+          bigHeart.addEventListener('click', startSurprise);
+          bigHeart.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              startSurprise();
+            }
+          });
+
+          const heartBg2 = document.getElementById('heart-bg-2');
+
+          function createWhiteHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.backgroundColor = '#fff';
+            heart.style.left = randomInt(0, window.innerWidth) + 'px';
+            heart.style.bottom = '-20px';
+            heart.style.width = randomInt(10, 20) + 'px';
+            heart.style.height = heart.style.width.replace('px', '') * 0.9 + 'px';
+            heart.style.opacity = (Math.random() * 0.3 + 0.2).toFixed(2);
+            heart.style.filter = `drop-shadow(0 0 2px #fff)`;
+            return heart;
+          }
+
+          function animateWhiteHeart(heart) {
+            const duration = randomInt(6000, 10000) / 1000;
+            const horizontalMove = randomInt(-30, 30);
+
+            gsap.to(heart, {
+              y: -window.innerHeight - 40,
+              x: `+=${horizontalMove}`,
+              opacity: 0,
+              duration: duration,
+              ease: "linear",
+              onComplete: () => {
+                heart.remove();
+                spawnWhiteHeart();
+              }
+            });
+          }
+
+          function spawnWhiteHeart() {
+            const heart = createWhiteHeart();
+            heartBg2.appendChild(heart);
+            animateWhiteHeart(heart);
+          }
+
+          setInterval(spawnWhiteHeart, 1000);
+          const ctaButton = document.getElementById('cta-button');
+          const section2 = document.getElementById('section-2');
+          const section3 = document.getElementById('section-3');
+
+          ctaButton.addEventListener('click', () => {
+            // Sembunyikan section-2
+            gsap.to(section2, {
+              y: -window.innerHeight,
+              opacity: 0,
+              duration: 1.2,
+              ease: "power2.inOut",
+              onComplete: () => {
+                section2.style.display = 'none';
+              }
+            });
+
+            // Tampilkan section-3
+            gsap.to(section3, {
+              opacity: 1,
+              pointerEvents: 'auto',
+              duration: 1.4,
+              ease: "power2.out",
+            });
+          });
+
+            // Init Swiper
+        const swiper = new Swiper(".mySwiper", {
+          effect: "slide",
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+
+        const section4 = document.getElementById("section-4");
+        const nextToSection4 = document.getElementById("next-to-section4");
+
+        nextToSection4.addEventListener("click", () => {
+          gsap.to("#section-3", {
+            y: -window.innerHeight,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power2.inOut",
+            onComplete: () => {
+              document.getElementById("section-3").style.display = "none";
+            }
+          });
+
+          gsap.to(section4, {
+            opacity: 1,
+            pointerEvents: "auto",
+            duration: 1.4,
+            ease: "power2.out",
+          });
+        });
+
+document.addEventListener('DOMContentLoaded', function() {
+
+      // Initialize Swiper
+      const swiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                on: {
+                    slideChange: function() {
+                        // Reset and start typing effect for current slide
+                        startTypingEffect(this.slides[this.activeIndex].querySelector('.typing-text'));
+                        
+                        // Show "Next" button only on last slide
+                        const nextBtn = document.getElementById('next-section-btn');
+                        if (this.activeIndex === this.slides.length - 1) {
+                            setTimeout(() => {
+                                nextBtn.style.display = 'block';
+                                setTimeout(() => {
+                                    nextBtn.classList.add('visible');
+                                }, 500);
+                            }, 1500); // Show after typing finishes
+                        } else {
+                            nextBtn.classList.remove('visible');
+                            nextBtn.style.display = 'none';
+                        }
+                    },
+                    init: function() {
+                        // Start typing effect for first slide
+                        startTypingEffect(this.slides[0].querySelector('.typing-text'));
+                    }
+                }
+            });
+
+      // Typing effect function
+      function startTypingEffect(element) {
+                const text = element.getAttribute('data-text');
+                element.textContent = '';
+                element.style.borderRight = '2px solid white';
+                
+                let i = 0;
+                const typingInterval = setInterval(() => {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typingInterval);
+                        element.style.borderRight = 'none';
+                    }
+                }, 50);
+            }
+
+      // Navigation to next section
+      document.getElementById('next-section-btn').addEventListener('click', function() {
+        document.getElementById('section-4').classList.remove('active');
+
+        // Animasi keluar section-4
+        gsap.to('#section-4', {
+          y: -window.innerHeight,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power2.inOut",
+          onComplete: () => {
+            document.getElementById('section-4').style.display = 'none';
+          }
+        });
+
+        // Animasi masuk section-5
+        gsap.to('#section-5', {
+          opacity: 1,
+          pointerEvents: 'auto',
+          duration: 1.4,
+          ease: "power2.out",
+          onStart: () => {
+            document.getElementById('section-5').classList.add('active');
+          }
+        });
+      });
+
+      
+                // Initialize Love Story Swiper
+            const loveStorySwiper = new Swiper(".swiper-love-story", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                centeredSlides: true,
+                loop: false,
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true
+                },
+                speed: 800,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                on: {
+                    slideChange: function() {
+                        const nextBtn = document.getElementById('next-story-btn');
+                        
+                        // Show "Next Story" button only on last slide
+                        if (this.activeIndex === this.slides.length - 1) {
+                            setTimeout(() => {
+                                nextBtn.style.display = 'block';
+                                setTimeout(() => {
+                                    nextBtn.classList.add('visible');
+                                }, 1000);
+                            }, 500);
+                        } else {
+                            nextBtn.classList.remove('visible');
+                            setTimeout(() => {
+                                nextBtn.style.display = 'none';
+                            }, 300);
+                        }
+                    }
+                }
+            });
+
+            // Navigation to next section
+            document.getElementById('next-story-btn').addEventListener('click', function() {
+                document.getElementById('section-5').classList.remove('active');
+                setTimeout(() => {
+                    document.getElementById('section-6').classList.add('active');
+                }, 800);
+            });
+      
+            
+
+                        // Create stars background
+            const stars = document.querySelector('.stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random twinkle animation delay
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                
+                stars.appendChild(star);
+            }
+            
+            // Handle blow button click
+            const blowButton = document.getElementById('blow-button');
+            const flamekado = document.getElementById('flamekado');
+            const fireworksContainer = document.getElementById('fireworks');
+            const congratulation = document.querySelector('.congratulation');
+            
+            blowButton.addEventListener('click', function() {
+                // Disable button
+                this.disabled = true;
+                this.style.opacity = '0.5';
+                
+                // Extinguish flamekado
+                flamekado.style.opacity = '0';
+                flamekado.style.transform = 'scaleY(0.1) scaleX(1.5)';
+                
+                // Show congratulation text
+                setTimeout(() => {
+                    congratulation.classList.add('visible');
+                }, 500);
+                
+                // Start fireworks
+                setTimeout(() => {
+                    fireworksContainer.style.display = 'block';
+                    createFireworks();
+                }, 800);
+                
+                // Move to next section after fireworks
+                setTimeout(() => {
+                    document.getElementById('section-6').classList.remove('active');
+                    setTimeout(() => {
+                        document.getElementById('section-7').classList.add('active');
+                    }, 800);
+                }, 4500);
+            });
+            
+            // Create fireworks animation
+            function createFireworks() {
+                const colors = ['#ff0', '#f0f', '#0ff', '#ff5e62', '#00f5d4', '#9b5de5'];
+                
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        launchFirework(colors[Math.floor(Math.random() * colors.length)]);
+                    }, i * 300);
+                }
+            }
+            
+            function launchFirework(color) {
+                // Create firework container
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                fireworksContainer.appendChild(firework);
+                
+                // Set random position
+                const posX = 20 + Math.random() * 60; // Keep within middle area
+                const posY = 20 + Math.random() * 50;
+                firework.style.left = `${posX}%`;
+                firework.style.top = `${posY}%`;
+                
+                // Create explosion particles
+                const particleCount = 30 + Math.floor(Math.random() * 20);
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.position = 'absolute';
+                    particle.style.width = '3px';
+                    particle.style.height = '3px';
+                    particle.style.backgroundColor = color;
+                    particle.style.borderRadius = '50%';
+                    
+                    // Set random direction
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = 30 + Math.random() * 70;
+                    const speed = 2 + Math.random() * 2;
+                    
+                    // Add particle with animation
+                    firework.appendChild(particle);
+                    
+                    // Start particle at center
+                    particle.style.left = '0px';
+                    particle.style.top = '0px';
+                    
+                    // Fade in firework
+                    setTimeout(() => {
+                        firework.style.opacity = '1';
+                        
+                        // Animate particle outwards
+                        const dx = Math.cos(angle) * distance;
+                        const dy = Math.sin(angle) * distance;
+                        
+                        particle.style.transition = `all ${speed}s ease-out`;
+                        particle.style.transform = `translate(${dx}px, ${dy}px)`;
+                        particle.style.opacity = '0';
+                    }, 10);
+                }
+                
+                // Remove firework after animation
+                setTimeout(() => {
+                    firework.remove();
+                }, 4000);
+            }
+
+
+
+                        // Gift box click handler
+            const giftContainer = document.getElementById('gift-container');
+            const giftBox = document.getElementById('gift-box');
+            
+            giftContainer.addEventListener('click', function() {
+                // Open the gift box with animation
+                giftBox.classList.add('open');
+                
+                // Hide the tap instruction
+                document.querySelector('.tap-instruction').style.opacity = '0';
+                
+                // Wait for animation to complete, then show next section
+                setTimeout(() => {
+                    document.getElementById('section-7').classList.remove('active');
+                    setTimeout(() => {
+                        document.getElementById('section-8').classList.add('active');
+                    }, 800);
+                }, 1500);
+            });
+            
+            // Generate QR code
+            setTimeout(() => {
+                new QRCode(document.getElementById("qrcode"), {
+                    text: "https://dana.id/qr/12345678", // Replace with your actual Dana link
+                    width: 128,
+                    height: 128,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+            }, 2000); // Generate after section becomes visible
+
+
+
+      });
+
+  </script>
+
+</body>
+</html>
+
