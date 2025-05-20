@@ -1523,15 +1523,7 @@
             });
           });
 
-            // Init Swiper
-        const swiper = new Swiper(".mySwiper", {
-          effect: "slide",
-          loop: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-        });
+
 
         const section4 = document.getElementById("section-4");
         const nextToSection4 = document.getElementById("next-to-section4");
@@ -1558,14 +1550,18 @@
 document.addEventListener('DOMContentLoaded', function() {
 
       // Initialize Swiper
-      const swiper = new Swiper(".mySwiper", {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-                on: {
+const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    allowTouchMove: false, // Nonaktifkan swipe
+    noSwiping: true, // Tambahkan ini untuk extra measure
+    noSwipingClass: 'swiper-slide', // Pastikan tidak ada elemen yang bisa di-swipe
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    on: {
                     slideChange: function() {
                         // Reset and start typing effect for current slide
                         startTypingEffect(this.slides[this.activeIndex].querySelector('.typing-text'));
